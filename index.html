@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Business Name | Balloon Decor</title>
+
+
+  <meta name="description" content="Custom balloon decor for birthdays, weddings, and events. Based in [City].">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <h1 class="logo">🎈 YourBusiness</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#quote">Get a Quote</a>
+      <a href="#contact" class="btn">Book</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Balloon Decor That Pops ✨</h2>
+    <p>Custom balloon installations for birthdays, weddings, showers, and corporate events.</p>
+    <a href="#quote" class="btn primary">Get a Quote</a>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h3>Our Services</h3>
+    <div class="cards">
+      <div class="card">🎉 Balloon Arches</div>
+      <div class="card">💍 Wedding Installations</div>
+      <div class="card">🎂 Birthday Setups</div>
+      <div class="card">🏢 Corporate Events</div>
+    </div>
+  </section>
+
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h3>Our Work</h3>
+    <div class="gallery-grid">
+      <div class="img-box"></div>
+      <div class="img-box"></div>
+      <div class="img-box"></div>
+      <div class="img-box"></div>
+    </div>
+    <p class="hint">✨ Replace with your real photos</p>
+  </section>
+
+
+  <!-- QUOTE CALCULATOR -->
+  <section id="quote">
+    <h3>Instant Price Estimator</h3>
+
+
+    <div class="quote-box">
+      <label>
+        Event Type
+        <select id="eventType">
+          <option value="birthday">Birthday</option>
+          <option value="wedding">Wedding</option>
+          <option value="corporate">Corporate</option>
+        </select>
+      </label>
+
+
+      <label>
+        Balloon Size
+        <select id="size">
+          <option value="small">Small Setup</option>
+          <option value="medium">Medium Setup</option>
+          <option value="large">Large Installation</option>
+        </select>
+      </label>
+
+
+      <label>
+        Delivery & Setup
+        <input type="checkbox" id="delivery" checked>
+      </label>
+
+
+      <p class="price">Estimated Price: <span id="price">$0</span></p>
+      <a href="#contact" class="btn primary">Request Booking</a>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h3>Book Your Event</h3>
+    <p>Email: <a href="mailto:you@email.com">you@email.com</a></p>
+    <p>Instagram: <a href="#">@yourbusiness</a></p>
+  </section>
+
+
+  <footer>
+    <p>© 2025 Your Business Name</p>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

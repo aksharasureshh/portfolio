@@ -1,0 +1,98 @@
+﻿:root {
+  --bg: #fff;
+  --accent: #ff6ec7;
+  --dark: #1f2937;
+  --soft: #fdf2f8;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  color: var(--dark);
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+}
+
+
+.nav a {
+  margin-left: 1.2rem;
+}
+
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #ffd6e8, #fbcfe8);
+}
+
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+
+
+.card {
+  background: var(--soft);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+
+
+.img-box {
+  height: 200px;
+  background: #f9a8d4;
+  border-radius: 16px;
+}
+
+
+.quote-box {
+  background: var(--soft);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  margin: auto;
+}
+
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
