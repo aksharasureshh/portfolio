@@ -8,24 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
     cluster.style.left = "120px";
     cluster.style.top = "120px";
 
-    // ---- BALLOON CLUSTER ----
+    // =====================
+    // MAIN BALLOON CLUSTER
+    // =====================
+
     // 1 × 18"
-    addBalloon(cluster, 90, 0, 0);
+    addBalloon(cluster, 90, 35, 40);
 
     // 3 × 12"
-    addBalloon(cluster, 60, -45, 25);
-    addBalloon(cluster, 60, 45, 25);
     addBalloon(cluster, 60, 0, 55);
+    addBalloon(cluster, 60, 85, 55);
+    addBalloon(cluster, 60, 35, 95);
 
     // 2 × 9"
-    addBalloon(cluster, 45, -30, 70);
-    addBalloon(cluster, 45, 30, 70);
+    addBalloon(cluster, 45, 15, 105);
+    addBalloon(cluster, 45, 70, 105);
 
-    // 4 × 5"
-    addBalloon(cluster, 25, -15, -40);
-    addBalloon(cluster, 25, 15, -40);
-    addBalloon(cluster, 25, 0, -60);
-    addBalloon(cluster, 25, 20, -60);
+    // =====================
+    // 4 × 5" MINI CLUSTER
+    // (overlapping, centered)
+    // =====================
+
+    addBalloon(cluster, 25, 48, 68);
+    addBalloon(cluster, 25, 60, 68);
+    addBalloon(cluster, 25, 54, 58);
+    addBalloon(cluster, 25, 54, 78);
 
     canvas.appendChild(cluster);
     makeDraggable(cluster);
@@ -65,4 +72,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
