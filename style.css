@@ -128,3 +128,31 @@ footer a {
   color: #5a2a3c;
   text-decoration: none;
 }
+
+/* BUILDER */
+#builder-canvas {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background: #ffffff;
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+
+#arch-guide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* CLUSTERS */
+.cluster {
+  position: absolute;
+  cursor: grab;
+}
+
+.balloon {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.96;
+}
