@@ -2,45 +2,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("addCluster");
   const canvas = document.getElementById("builder-canvas");
 
- button.addEventListener("click", function () {
-  const cluster = document.createElement("div");
-  cluster.className = "cluster";
-  cluster.style.left = "120px";
-  cluster.style.top = "120px";
+  button.addEventListener("click", function () {
+    const cluster = document.createElement("div");
+    cluster.className = "cluster";
+    cluster.style.left = "120px";
+    cluster.style.top = "120px";
 
-  // 18"
-  addBalloon(cluster, 90, 0, 0);
+    // ---- BALLOON CLUSTER ----
+    // 1 × 18"
+    addBalloon(cluster, 90, 0, 0);
 
-  // 12"
-  addBalloon(cluster, 60, -45, 25);
-  addBalloon(cluster, 60, 45, 25);
-  addBalloon(cluster, 60, 0, 55);
+    // 3 × 12"
+    addBalloon(cluster, 60, -45, 25);
+    addBalloon(cluster, 60, 45, 25);
+    addBalloon(cluster, 60, 0, 55);
 
-  // 9"
-  addBalloon(cluster, 45, -30, 70);
-  addBalloon(cluster, 45, 30, 70);
+    // 2 × 9"
+    addBalloon(cluster, 45, -30, 70);
+    addBalloon(cluster, 45, 30, 70);
 
-  // 5"
-  addBalloon(cluster, 25, -15, -40);
-  addBalloon(cluster, 25, 15, -40);
-  addBalloon(cluster, 25, 0, -60);
-  addBalloon(cluster, 25, 20, -60);
+    // 4 × 5"
+    addBalloon(cluster, 25, -15, -40);
+    addBalloon(cluster, 25, 15, -40);
+    addBalloon(cluster, 25, 0, -60);
+    addBalloon(cluster, 25, 20, -60);
 
-  canvas.appendChild(cluster);
-  makeDraggable(cluster);
-});
-
-function addBalloon(parent, size, x, y) {
-  const balloon = document.createElement("div");
-  balloon.className = "balloon";
-  balloon.style.width = size + "px";
-  balloon.style.height = size + "px";
-  balloon.style.left = x + "px";
-  balloon.style.top = y + "px";
-  parent.appendChild(balloon);
-}
-
+    canvas.appendChild(cluster);
+    makeDraggable(cluster);
   });
+
+  function addBalloon(parent, size, x, y) {
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.style.width = size + "px";
+    balloon.style.height = size + "px";
+    balloon.style.left = x + "px";
+    balloon.style.top = y + "px";
+    parent.appendChild(balloon);
+  }
 
   function makeDraggable(el) {
     let dragging = false;
