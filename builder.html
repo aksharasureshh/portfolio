@@ -2,18 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Build Your Arch</title>
+  <title>Build Your Balloon Arch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global site styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Builder-specific styles -->
+  <link rel="stylesheet" href="builder.css" />
 </head>
 <body>
 
-  <h1>Balloon Arch Builder</h1>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">BalloonsByAks 🎈</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="builder.html">Build Your Arch</a></li>
+      <li><a href="book.html">Book Now</a></li>
+    </ul>
+  </nav>
 
-  <button id="addCluster">Add Balloon Cluster</button>
+  <!-- BUILDER HEADER -->
+  <section>
+    <h1>Balloon Arch Builder</h1>
+    <p>
+      Click “Add Balloon Cluster” to create organic balloon clusters,
+      then drag them onto the arch area to design your custom look.
+    </p>
 
-  <div id="builder-canvas"></div>
+    <button id="addCluster">Add Balloon Cluster</button>
+  </section>
 
+  <!-- BUILDER CANVAS -->
+  <section>
+    <div id="builder-canvas"></div>
+  </section>
+
+  <!-- BUILDER SCRIPT -->
   <script src="builder.js"></script>
 </body>
 </html>
