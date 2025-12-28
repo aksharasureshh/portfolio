@@ -2,67 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Build Your Arch | BalloonsByAks</title>
+  <title>Build Your Arch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- MAIN SITE STYLES -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- BUILDER STYLES -->
-  <link rel="stylesheet" href="builder.css" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="logo">BalloonsByAks 🎈</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="builder.html">Build Your Arch</a></li>
-      <li><a href="book.html" class="cta">Book Now</a></li>
-    </ul>
-  </nav>
+  <h1>Balloon Arch Builder</h1>
 
-  <!-- HEADER -->
-  <section class="section">
-    <h1>Design Your Balloon Arch</h1>
-    <p>Click to add organic balloon clusters, then drag them onto the arch.</p>
-    <button id="addCluster" class="primary-btn">Add Balloon Cluster</button>
-  </section>
+  <button id="addCluster">Add Balloon Cluster</button>
 
-  <!-- BUILDER -->
-  <section class="builder-wrapper">
-    <div id="builder-canvas">
+  <div id="builder-canvas"></div>
 
-      <!-- BACKDROP ARCH FRAME -->
-      <svg id="arch-guide" viewBox="0 0 300 500" aria-hidden="true">
-        <path
-          d="
-            M 60 500
-            L 60 170
-            Q 150 40 240 170
-            L 240 500
-          "
-        />
-      </svg>
-
-    </div>
-  </section>
-
-  <!-- SCRIPT (loads AFTER DOM by placement) -->
   <script src="builder.js"></script>
-  <!-- COLOR PALETTE -->
-<div id="color-palette" class="color-palette hidden">
-  <div class="color" data-color="#f7b7cc"></div>
-  <div class="color" data-color="#f49ab6"></div>
-  <div class="color" data-color="#ffd1e3"></div>
-  <div class="color" data-color="#ffffff"></div>
-  <div class="color" data-color="#d6c1de"></div>
-  <div class="color" data-color="#c9e4de"></div>
-  <div class="color" data-color="#f3eac2"></div>
-</div>
-
 </body>
 </html>
