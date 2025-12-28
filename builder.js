@@ -50,11 +50,44 @@ document.addEventListener("DOMContentLoaded", () => {
     parent.appendChild(balloon);
   }
 
-  function enableDrag(el) {
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
+function enableDrag(el) {
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
 
+  el.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    const rect = el.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    el.style.cursor = "grabbing";
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const canvasRect = document
+      .getElementById("builder-canvas")
+      .getBoundingClientRect();
+
+    let x = e.clientX - canvasRect.left - offsetX;
+    let y = e.clientY - canvasRect.top - offsetY;
+
+    // Optional: keep clusters inside the canvas
+    x = Math.max(0, Math.min(x, canvasRect.width - el.offsetWidth));
+    y = Math.max(0, Math.min(y, canvasRect.height - el.offsetHeight));
+
+    el.style.left = x + "px";
+    el.style.top = y + "px";
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    el.style.cursor = "grab";
+  });
+}
+
+    
     el.addEventListener("mousedown", (e) => {
       isDragging = true;
       offsetX = e.offsetX;
