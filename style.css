@@ -1,17 +1,21 @@
-/* ===== BASE ===== */
+/* =======================
+   BASE / GLOBAL
+======================= */
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
   padding: 40px;
   background: #fff6fa;
   color: #3a2a2a;
 }
 
-/* ===== HEADER ===== */
 h1 {
   margin-bottom: 16px;
 }
 
-/* ===== BUTTON ===== */
+/* =======================
+   BUTTONS
+======================= */
 button {
   padding: 10px 18px;
   font-size: 16px;
@@ -26,19 +30,25 @@ button:hover {
   background: #f4a8c0;
 }
 
-/* ===== BUILDER CANVAS ===== */
+/* =======================
+   BUILDER CANVAS
+======================= */
 #builder-canvas {
   margin-top: 30px;
   width: 420px;
   height: 420px;
   border: 2px dashed #ccc;
-  position: relative; /* anchor for clusters */
   background: #ffffff;
+  position: relative; /* anchor for clusters */
 }
 
-/* ===== CLUSTER ===== */
+/* =======================
+   CLUSTER (THIS FIXES IT)
+======================= */
 .cluster {
-  position: relative; /* THIS FIXES CLUSTERING */
+  position: absolute;        /* cluster moves as a unit */
+  width: 160px;              /* REQUIRED */
+  height: 160px;             /* REQUIRED */
   cursor: grab;
 }
 
@@ -46,10 +56,11 @@ button:hover {
   cursor: grabbing;
 }
 
-/* ===== BALLOONS ===== */
+/* =======================
+   BALLOONS
+======================= */
 .balloon {
   position: absolute;
   background: pink;
   border-radius: 50%;
 }
-
