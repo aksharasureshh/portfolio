@@ -1,21 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("builder-canvas");
   const addClusterBtn = document.getElementById("addCluster");
   const palette = document.getElementById("color-palette");
 
   let selectedCluster = null;
 
+  if (!canvas || !addClusterBtn) {
+    console.error("Builder elements missing");
+    return;
+  }
+
   addClusterBtn.addEventListener("click", createCluster);
 
   function createCluster() {
     const cluster = document.createElement("div");
     cluster.className = "cluster";
-
-    // Initial position inside canvas
     cluster.style.left = "120px";
     cluster.style.top = "300px";
 
-    // === MAIN CLUSTER ===
     // 1 × 18"
     addBalloon(cluster, 90, "#f7b7cc", 0, 0);
 
@@ -28,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addBalloon(cluster, 45, "#ffd1e3", -30, 70);
     addBalloon(cluster, 45, "#ffd1e3", 30, 70);
 
-    // === MINI CLUSTER (4 × 5") ===
+    // 4 × 5"
     addBalloon(cluster, 25, "#ffffff", -15, -40);
     addBalloon(cluster, 25, "#ffffff", 15, -40);
     addBalloon(cluster, 25, "#ffffff", 0, -60);
@@ -51,15 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     parent.appendChild(balloon);
   }
 
-  // ------------------
-  // DRAGGING (FIXED)
-  // ------------------
   function enableDrag(el) {
     let isDragging = false;
     let offsetX = 0;
     let offsetY = 0;
 
-    el.addEventListener("mousedown", (e) => {
+    el.addEventListener("mousedown", function (e) {
       isDragging = true;
       const rect = el.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
@@ -67,15 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.cursor = "grabbing";
     });
 
-    document.addEventListener("mousemove", (e) => {
+    document.addEventListener("mousemove", function (e) {
       if (!isDragging) return;
 
       const canvasRect = canvas.getBoundingClientRect();
-
       let x = e.clientX - canvasRect.left - offsetX;
       let y = e.clientY - canvasRect.top - offsetY;
 
-      // Keep cluster inside canvas
       x = Math.max(0, Math.min(x, canvasRect.width - el.offsetWidth));
       y = Math.max(0, Math.min(y, canvasRect.height - el.offsetHeight));
 
@@ -83,17 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.top = y + "px";
     });
 
-    document.addEventListener("mouseup", () => {
+    document.addEventListener("mouseup", function () {
       isDragging = false;
       el.style.cursor = "grab";
     });
   }
 
-  // ------------------
-  // COLOR PICKER
-  // ------------------
   function enableColorPicker(cluster) {
-    cluster.addEventListener("click", (e) => {
+    if (!palette) return;
+
+    cluster.addEventListener("click", function (e) {
       e.stopPropagation();
       selectedCluster = cluster;
 
@@ -104,21 +100,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll(".color").forEach((swatch) => {
-    swatch.addEventListener("click", () => {
-      if (!selectedCluster) return;
-
-      const color = swatch.dataset.color;
-      selectedCluster.querySelectorAll(".balloon").forEach((balloon) => {
-        balloon.style.background = color;
+  if (palette) {
+    const swatches = document.querySelectorAll(".color");
+    swatches.forEach(function (swatch) {
+      swatch.addEventListener("click", function () {
+        if (!selectedCluster) return;
+        const color = swatch.dataset.color;
+        selectedCluster
+          .querySelectorAll(".balloon")
+          .forEach(function (balloon) {
+            balloon.style.background = color;
+          });
       });
     });
-  });
 
-  // Hide palette when clicking outside
-  document.addEventListener("click", () => {
-    palette.classList.add("hidden");
-    selectedCluster = null;
-  });
+    document.addEventListener("click", function () {
+      palette.classList.add("hidden");
+      selectedCluster = null;
+    });
+  }
 });
-
