@@ -1,118 +1,84 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Business Name | Balloon Decor</title>
-
-
-  <meta name="description" content="Custom balloon decor for birthdays, weddings, and events. Based in [City].">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
-  <link rel="stylesheet" href="styles.css">
+  <title>BalloonsByAks | Luxury Balloon Decor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <h1 class="logo">BalloonsbyAks🎈</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#quote">Get a Quote</a>
-      <a href="#contact" class="btn">Book Now</a>
-    </nav>
-  </header>
 
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">BalloonsByAks 🎈</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="builder.html">Build Your Arch</a></li>
+      <li><a href="book.html" class="cta">Book Now</a></li>
+    </ul>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <h2>Affordable Balloon Decor in the GTA</h2>
-    <p>Custom balloon installations for birthdays, weddings,corporate events, etc.</p>
-    <a href="#quote" class="btn primary">Get a Quote Today</a>
+    <div class="hero-text">
+      <h1>Luxury Balloon Decor<br />for Every Occasion</h1>
+      <p>
+        Custom organic balloon installations for birthdays, weddings,
+        showers, and corporate events across Toronto & the GTA.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="builder.html" class="primary-btn">Build Your Arch</a>
+        <a href="gallery.html" class="secondary-btn">View Gallery</a>
+      </div>
+    </div>
   </section>
-  
-  <!-- SERVICES -->
-  <section id="services">
-    <h3>Our Services</h3>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <h2>Our Services</h2>
     <div class="cards">
-      <div class="card">Organic Balloon Arches</div>
-      <div class="card">Circle Arches</div>
-      <div class="card">Balloon Walls</div>
-      <div class="card">Balloon Columns</div>
+      <div class="card">
+        <h3>Balloon Arches & Garlands</h3>
+        <p>Organic, custom-built arches for all event sizes.</p>
+      </div>
+      <div class="card">
+        <h3>Backdrops & Installations</h3>
+        <p>Statement pieces that transform your space.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Themes</h3>
+        <p>Tailored colours and designs to match your vision.</p>
+      </div>
     </div>
   </section>
 
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <h3>Our Work</h3>
-    <div class="gallery-grid">
-      <div class="img-box"></div>
-      <div class="img-box"></div>
-      <div class="img-box"></div>
-      <div class="img-box"></div>
-    </div>
-    <p class="hint">✨ Replace with your real photos</p>
+  <!-- BUILD YOUR OWN -->
+  <section class="section highlight">
+    <h2>Design Your Own Balloon Arch</h2>
+    <p>
+      Use our interactive builder to design your arch, choose colours,
+      and send it to us for a custom quote.
+    </p>
+    <a href="builder.html" class="primary-btn">Start Designing</a>
   </section>
 
-
-  <!-- QUOTE CALCULATOR -->
-  <section id="quote">
-    <h3>Instant Price Estimator</h3>
-
-
-    <div class="quote-box">
-      <label>
-        Event Type
-        <select id="eventType">
-          <option value="birthday">Birthday</option>
-          <option value="wedding">Wedding</option>
-          <option value="corporate">Corporate</option>
-        </select>
-      </label>
-
-
-      <label>
-        Balloon Size
-        <select id="size">
-          <option value="small">Small Setup</option>
-          <option value="medium">Medium Setup</option>
-          <option value="large">Large Installation</option>
-        </select>
-      </label>
-
-
-      <label>
-        Delivery & Setup
-        <input type="checkbox" id="delivery" checked>
-      </label>
-
-
-      <p class="price">Estimated Price: <span id="price">$0</span></p>
-      <a href="#contact" class="btn primary">Request Booking</a>
-    </div>
+  <!-- CTA -->
+  <section class="section cta-section">
+    <h2>Ready to bring your event to life?</h2>
+    <a href="book.html" class="primary-btn">Book Now</a>
   </section>
 
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h3>Book Your Event Today</h3>
-    <p>Email: <a href="mailto:you@email.com">akshara.icrc@gmail.com</a></p>
-    <p>Instagram: <a href="#">@balloonsbyaks</a></p>
-  </section>
-
-
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 BalloonsbyAks</p>
+    <p>© 2025 BalloonsByAks • Toronto & GTA</p>
+    <p>
+      <a href="#">Instagram</a> •
+      <a href="mailto:hello@balloonsbyaks.ca">hello@balloonsbyaks.ca</a>
+    </p>
   </footer>
 
-
-  <script src="script.js"></script>
 </body>
-
 </html>
