@@ -49,3 +49,28 @@
   opacity: 0.97;
   box-shadow: inset -6px -8px 0 rgba(0, 0, 0, 0.06);
 }
+
+/* COLOR PALETTE */
+.color-palette {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.color-palette.hidden {
+  display: none;
+}
+
+.color {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #e5e5e5;
+}
+
