@@ -1,76 +1,75 @@
-/* BUILDER WRAPPER */
-.builder-wrapper {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 4rem;
+/* =========================
+   BUILDER PAGE BASE
+========================= */
+body {
+  background: #fff6fa;
 }
 
-/* CANVAS */
+/* =========================
+   BUTTON
+========================= */
+button {
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: #f7b7cc;
+  color: #2f1f1f;
+}
+
+button:hover {
+  background: #f4a8c0;
+}
+
+/* =========================
+   BUILDER CANVAS
+========================= */
 #builder-canvas {
-  position: relative;
-  width: 360px;
-  height: 520px;
+  margin-top: 30px;
+  width: 420px;
+  height: 420px;
+  border: 2px dashed #d8c6ce;
   background: #ffffff;
-  border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  position: relative;
 }
 
-/* ARCH FRAME */
-#arch-guide {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-}
-
-#arch-guide path {
-  fill: none;
-  stroke: #e8e8ee;
-  stroke-width: 10;
-}
-
-/* BALLOON CLUSTERS */
+/* =========================
+   CLUSTER
+========================= */
 .cluster {
   position: absolute;
+  width: 160px;
+  height: 160px;
   cursor: grab;
-  user-select: none;
 }
 
 .cluster:active {
   cursor: grabbing;
 }
 
-/* BALLOONS */
+/* =========================
+   BALLOONS (REALISTIC LOOK)
+========================= */
 .balloon {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.97;
-  box-shadow: inset -6px -8px 0 rgba(0, 0, 0, 0.06);
+  background: radial-gradient(
+    circle at 30% 30%,
+    #ffffff 0%,
+    #ffd9a8 25%,
+    #e0b35f 60%,
+    #c89a3a 100%
+  );
+  box-shadow:
+    inset -6px -8px 12px rgba(0, 0, 0, 0.15),
+    4px 8px 14px rgba(0, 0, 0, 0.18);
 }
 
-/* COLOR PALETTE */
-.color-palette {
-  position: absolute;
-  display: flex;
-  gap: 8px;
-  padding: 10px;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+.balloon:nth-child(odd) {
+  z-index: 2;
 }
 
-.color-palette.hidden {
-  display: none;
+.balloon:nth-child(even) {
+  z-index: 1;
 }
-
-.color {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid #e5e5e5;
-}
-
