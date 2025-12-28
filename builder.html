@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <title>Build Your Arch | BalloonsByAks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- MAIN SITE STYLES -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- BUILDER STYLES -->
+  <link rel="stylesheet" href="builder.css" />
 </head>
 <body>
 
@@ -20,29 +25,33 @@
     </ul>
   </nav>
 
-  <!-- PAGE HEADER -->
+  <!-- HEADER -->
   <section class="section">
     <h1>Design Your Balloon Arch</h1>
-    <p>
-      Drag organic balloon clusters onto the arch to design your custom look.
-    </p>
+    <p>Click to add organic balloon clusters, then drag them onto the arch.</p>
     <button id="addCluster" class="primary-btn">Add Balloon Cluster</button>
   </section>
 
-  <!-- BUILDER CANVAS -->
-  <div id="builder-canvas">
-    <svg id="arch-guide" viewBox="0 0 800 400">
-      <path
-        d="M100 350 Q400 50 700 350"
-        fill="none"
-        stroke="#f7b7cc"
-        stroke-width="4"
-        stroke-dasharray="10 10"
-      />
-    </svg>
-  </div>
+  <!-- BUILDER -->
+  <section class="builder-wrapper">
+    <div id="builder-canvas">
 
+      <!-- BACKDROP ARCH FRAME -->
+      <svg id="arch-guide" viewBox="0 0 300 500" aria-hidden="true">
+        <path
+          d="
+            M 60 500
+            L 60 170
+            Q 150 40 240 170
+            L 240 500
+          "
+        />
+      </svg>
+
+    </div>
+  </section>
+
+  <!-- SCRIPT (loads AFTER DOM by placement) -->
   <script src="builder.js"></script>
 </body>
 </html>
-
