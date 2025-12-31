@@ -2,86 +2,317 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BalloonsByAks | Luxury Balloon Decor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshara Suresh</title>
 
-  <!-- MAIN SITE STYLES -->
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent: #c9d3cc;
+      --accent-dark: #aeb8b1;
+      --text-main: #111;
+      --text-muted: #555;
+      --bg-main: #fafafa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* ===== BACKGROUND SHAPE ===== */
+    .background-shape {
+      position: fixed;
+      top: -300px;
+      right: -350px;
+      width: 1100px;
+      height: 1100px;
+      background: radial-gradient(
+        circle at center,
+        rgba(201, 211, 204, 0.45),
+        rgba(201, 211, 204, 0.22),
+        transparent 70%
+      );
+      filter: blur(55px);
+      z-index: -1;
+      pointer-events: none;
+      transition: transform 0.2s ease-out;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 60px;
+      position: sticky;
+      top: 0;
+      background: rgba(250,250,250,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    nav .name { font-weight: 600; }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background: var(--accent-dark);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    /* SECTIONS */
+    section {
+      max-width: 1200px;
+      margin: 140px auto;
+      padding: 0 60px;
+    }
+
+    /* HERO */
+    .hero-title {
+      font-size: 4.2rem;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      transform: translateY(100%);
+      animation: revealText 0.9s ease forwards;
+    }
+
+    @keyframes revealText {
+      to { transform: translateY(0); }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    /* SPLIT */
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* VISUAL */
+    .visual {
+      height: 460px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--accent), #ffffff);
+      transition: transform 0.2s ease-out;
+      will-change: transform;
+    }
+
+    /* ===== DRAGGABLE THINKING CARDS ===== */
+    .thinking-wrapper {
+      display: flex;
+      gap: 32px;
+      position: relative;
+      touch-action: none;
+    }
+
+    .think-card {
+      min-width: 320px;
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid #e6e6e6;
+      background: #ffffff;
+      cursor: grab;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .think-card:active {
+      cursor: grabbing;
+    }
+
+    .think-card h3 {
+      margin-top: 0;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .think-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .think-card.dragging {
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+    }
+
+    .cta a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      border-bottom: 1px solid var(--accent-dark);
+      padding-bottom: 4px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 22px 30px; }
+      section { padding: 0 30px; margin: 100px auto; }
+      .hero-title { font-size: 3rem; }
+      .split { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="logo">BalloonsByAks 🎈</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="builder.html">Build Your Arch</a></li>
-      <li><a href="book.html" class="cta">Book Now</a></li>
-    </ul>
+  <div class="background-shape" id="bgShape"></div>
+
+  <nav>
+    <div class="name">Akshara Suresh</div>
+    <div>
+      <a href="index.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Luxury Balloon Decor<br />for Every Occasion</h1>
-      <p>
-        Custom organic balloon installations for birthdays, weddings,
-        showers, and corporate events across Toronto & the GTA.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="builder.html" class="primary-btn">Build Your Arch</a>
-        <a href="gallery.html" class="secondary-btn">View Gallery</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES PREVIEW -->
-  <section class="section">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Balloon Arches & Garlands</h3>
-        <p>Organic, custom-built arches for all event sizes.</p>
-      </div>
-      <div class="card">
-        <h3>Backdrops & Installations</h3>
-        <p>Statement pieces that transform your space.</p>
-      </div>
-      <div class="card">
-        <h3>Custom Themes</h3>
-        <p>Tailored colours and designs to match your vision.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BUILD YOUR OWN -->
-  <section class="section highlight">
-    <h2>Design Your Own Balloon Arch</h2>
+  <section>
+    <h1 class="hero-title"><span>Hi, I’m Akshara.</span></h1>
     <p>
-      Use our interactive builder to design your arch, choose colours,
-      and send it to us for a custom quote.
+      I love to learn — especially when it leads me to build something tangible.
+      As a Science & Business student at the University of Waterloo, this portfolio
+      is a project of its own: a space to explore ideas and learn intentionally by making.
     </p>
-    <a href="builder.html" class="primary-btn">Start Designing</a>
+  </section>
+
+  <!-- STORY -->
+  <section class="split">
+    <div class="text">
+      <p>
+        Science taught me how to ask better questions. Business taught me how
+        decisions scale beyond theory.
+      </p>
+      <p>
+        I’m most drawn to work that’s human and tangible — where thoughtful systems
+        can improve real experiences.
+      </p>
+    </div>
+    <div class="visual" id="visual"></div>
+  </section>
+
+  <!-- THINKING -->
+  <section>
+    <div class="thinking-wrapper">
+      <div class="think-card">
+        <h3>Ask Better Questions</h3>
+        <p>Understanding context and constraints before jumping to solutions.</p>
+      </div>
+      <div class="think-card">
+        <h3>Translate Complexity</h3>
+        <p>Bridging science, business, and design into clear ideas.</p>
+      </div>
+      <div class="think-card">
+        <h3>Learn by Building</h3>
+        <p>Using projects as a way to explore, test, and reflect.</p>
+      </div>
+    </div>
   </section>
 
   <!-- CTA -->
-  <section class="section cta-section">
-    <h2>Ready to bring your event to life?</h2>
-    <a href="book.html" class="primary-btn">Book Now</a>
+  <section class="cta">
+    <a href="contact.html">Let’s connect</a>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 BalloonsByAks • Toronto & GTA</p>
-    <p>
-      <a href="#">Instagram</a> •
-      <a href="mailto:hello@balloonsbyaks.ca">hello@balloonsbyaks.ca</a>
-    </p>
-  </footer>
+  <!-- SCRIPTS -->
+  <script>
+    /* Narrative Scroll */
+    const bg = document.getElementById('bgShape');
+    const visual = document.getElementById('visual');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      bg.style.transform = `translateY(${scrollY * 0.08}px)`;
+      if (visual) {
+        visual.style.transform = `scale(${1 - scrollY * 0.0002})`;
+      }
+    });
+
+    /* Draggable Cards (Mouse + Touch) */
+    document.querySelectorAll('.think-card').forEach(card => {
+      let startX = 0, startY = 0, x = 0, y = 0;
+
+      const startDrag = e => {
+        card.classList.add('dragging');
+        const p = e.touches ? e.touches[0] : e;
+        startX = p.clientX - x;
+        startY = p.clientY - y;
+        document.addEventListener('mousemove', onDrag);
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchmove', onDrag);
+        document.addEventListener('touchend', endDrag);
+      };
+
+      const onDrag = e => {
+        const p = e.touches ? e.touches[0] : e;
+        x = p.clientX - startX;
+        y = p.clientY - startY;
+        card.style.transform = `translate(${x}px, ${y}px)`;
+      };
+
+      const endDrag = () => {
+        card.classList.remove('dragging');
+        card.style.transition = 'transform 0.4s ease';
+        card.style.transform = 'translate(0, 0)';
+        x = y = 0;
+        setTimeout(() => card.style.transition = '', 400);
+        document.removeEventListener('mousemove', onDrag);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchmove', onDrag);
+        document.removeEventListener('touchend', endDrag);
+      };
+
+      card.addEventListener('mousedown', startDrag);
+      card.addEventListener('touchstart', startDrag, { passive: true });
+    });
+  </script>
 
 </body>
 </html>
-
